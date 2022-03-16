@@ -36,7 +36,7 @@ export class IconManager extends BaseManager {
   }
 
   /**
-   * All icons.
+   * Get all icons.
    * @returns {Promise<Icon[]>}
    */
   async getAll(): Promise<Icon[]> {
