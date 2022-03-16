@@ -1,0 +1,13 @@
+{
+  "name": "minehut.ts",
+  "version": "1.0.0",
+  "description": "A powerful library for interacting with the Minehut API",
+  "main": "./dist/index.js",
+  "author": "Mullp <mullp@protonmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.2"
+  }
+}
