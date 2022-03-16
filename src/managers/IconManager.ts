@@ -21,9 +21,9 @@ export class IconManager extends BaseManager {
 
   /**
    * Get a icon by name or Id.
-   * @param icon The name or the Id of the icon.
-   * @param byName Whether to search by name or Id.
-   * @returns Promise<Icon | undefined>
+   * @param {sting} icon The name or the Id of the icon.
+   * @param {boolean} byName Whether to search by name or Id.
+   * @returns {Promise<Icon | undefined>}
    */
   async get(icon: string, byName: boolean = true): Promise<Icon | undefined> {
     return await this.getAll()
@@ -37,7 +37,7 @@ export class IconManager extends BaseManager {
 
   /**
    * All icons.
-   * @returns Promise<Icon[]>
+   * @returns {Promise<Icon[]>}
    */
   async getAll(): Promise<Icon[]> {
     return await fetch(`https://api.minehut.com/servers/icons`)

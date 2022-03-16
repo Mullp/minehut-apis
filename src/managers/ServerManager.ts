@@ -22,7 +22,7 @@ export class ServerManager extends BaseManager {
   /**
    * Get a server by name or Id.
    * @param {string} server The name or the Id of the server.
-   * @param {string} byName Whether to search by name or Id.
+   * @param {boolean} byName Whether to search by name or Id.
    * @returns {Promise<Server>}
    */
   async get(server: string, byName: boolean = true): Promise<Server> {
