@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A powerful library for interacting with the Minehut API",
   "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mullp/minehut.ts.git"
+  },
   "author": "Mullp <mullp@protonmail.com>",
   "license": "MIT",
   "keywords": [
