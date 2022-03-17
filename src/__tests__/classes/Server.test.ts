@@ -3,7 +3,7 @@ import { Client } from "../../index";
 
 const client = new Client();
 
-test("Server test", async () => {
+test("Server", async () => {
   expect(await client.server.get("lightskies")).toBeInstanceOf(Server);
 });
 

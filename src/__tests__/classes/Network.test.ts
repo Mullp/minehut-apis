@@ -15,5 +15,9 @@ test("Player distribution", async () => {
 });
 
 test("Top servers", async () => {
-  expect(await client.network.getTopServers()).toBeTruthy();
+  expect(await client.network.getTopServers()).toBeInstanceOf(Array);
+});
+
+test("All servers", async () => {
+  expect(await client.network.getServers()).toBeInstanceOf(Array);
 });
