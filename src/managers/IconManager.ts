@@ -28,7 +28,9 @@ export class IconManager extends BaseManager {
   async get(icon: string, byName: boolean = true): Promise<Icon | undefined> {
     return await this.getAll()
       .then((icons) => {
-        return icons.find((i) => (byName ? i.iconName === icon : i.id === icon));
+        return icons.find((i) =>
+          byName ? i.iconName.toLowerCase() === icon.toLowerCase() : i.id.toLowerCase() === icon.toLowerCase(),
+        );
       })
       .catch((err) => {
         throw err;

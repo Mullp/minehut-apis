@@ -1,4 +1,4 @@
-import { IconManager, NetworkManager, ServerManager } from "../../managers";
+import { IconManager, NetworkManager, ProductManager, ServerManager } from "../../managers";
 
 export class Client {
   /**
@@ -19,9 +19,16 @@ export class Client {
    */
   network: NetworkManager;
 
+  /**
+   * The product manager used to access product related methods.
+   * @type {NetworkManager}
+   */
+  product: ProductManager;
+
   public constructor() {
     this.server = new ServerManager(this);
     this.icon = new IconManager(this);
     this.network = new NetworkManager(this);
+    this.product = new ProductManager(this);
   }
 }
