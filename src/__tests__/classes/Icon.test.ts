@@ -10,3 +10,7 @@ test("All icons test", async () => {
 test("Icon test", async () => {
   expect(await client.icon.get("GOLDEN_APPLE", true)).toBeInstanceOf(Icon);
 });
+
+test("Available icons test", async () => {
+  expect(await client.icon.getAvailableIcons()).toBeTruthy();
+});

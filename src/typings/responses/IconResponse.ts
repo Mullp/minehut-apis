@@ -11,3 +11,22 @@ export interface IconResponse {
   __v: number;
   salePrice?: number;
 }
+
+export interface AvailableIconsResponse {
+  available: {
+    icons: IconResponse[];
+    cycle_time: number;
+    _id: string;
+    active_start_time: number;
+    active_end_time: number;
+    __v: number;
+  };
+  upcoming: {
+    icons: IconResponse[];
+    cycle_time: number;
+    _id: string;
+    active_start_time: number;
+    active_end_time: number;
+    __v: number;
+  };
+}
