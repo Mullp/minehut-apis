@@ -33,7 +33,17 @@ export class Product extends BaseClass {
   public videos: string[];
   public visible: boolean;
   public slug: string;
-  public details: Details;
+  public promotionalDiscountOptIn: boolean;
+  public supportedLanguages: string[];
+  public contributors: string[];
+  public compatibleVersions: string[];
+  public versions: string[];
+  public managed: boolean;
+  public links: ProductLinks;
+  public publisherId: string;
+  public publisherSlug: string;
+  public publisherName?: string;
+  public publisherLogo?: string;
   public createdAt: Date;
   public updatedAt: Date;
   public status: string;
@@ -65,7 +75,17 @@ export class Product extends BaseClass {
     this.videos = data.videos.map((video) => `https://video.minehut.com/previews/${video}`);
     this.visible = data.visible;
     this.slug = data.slug;
-    this.details = data.details;
+    this.promotionalDiscountOptIn = data.details.promotionalDiscountOptIn;
+    this.supportedLanguages = data.details.supportedLanguages;
+    this.contributors = data.details.contributors;
+    this.compatibleVersions = data.details.compatibleVersions;
+    this.versions = data.details.versions;
+    this.managed = data.details.managed;
+    this.links = new ProductLinks(data.details.links);
+    this.publisherId = data.details.publisherId;
+    this.publisherSlug = data.details.publisherSlug;
+    this.publisherName = data.details.publisherName;
+    this.publisherLogo = data.details.publisherLogo;
     this.createdAt = new Date(data.createdAt);
     this.updatedAt = new Date(data.updatedAt);
     this.status = data.status;
@@ -73,5 +93,40 @@ export class Product extends BaseClass {
     this.unpublished = data.unpublished;
     this.onWishlist = data.onWishlist;
     this.isOwned = data.isOwned;
+  }
+}
+
+/**
+ * The product links.
+ */
+export class ProductLinks {
+  private links: { _id: string; linkText: string; linkUrl: string }[];
+
+  public constructor(links: { _id: string; linkText: string; linkUrl: string }[]) {
+    this.links = links;
+  }
+
+  /**
+   * Gets the support website url.
+   * @returns {string}
+   */
+  public getSupportWebsite(): string {
+    return this.links[0].linkUrl;
+  }
+
+  /**
+   * Gets the product website url.
+   * @returns {string}
+   */
+  public getProductWebsite(): string {
+    return this.links[1].linkUrl;
+  }
+
+  /**
+   * Gets the faq website url.
+   * @returns {string}
+   */
+  public getFaqWebsite(): string {
+    return this.links[2].linkUrl;
   }
 }

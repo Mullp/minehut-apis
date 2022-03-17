@@ -10,3 +10,7 @@ test("All products test", async () => {
 test("Product test", async () => {
   expect(await client.product.get("BetterCrops", true)).toBeInstanceOf(Product);
 });
+
+test("Product link test", async () => {
+  expect((await client.product.get("BetterCrops", true))?.links.getSupportWebsite()).toBeTruthy();
+});
