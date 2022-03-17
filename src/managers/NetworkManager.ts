@@ -1,7 +1,7 @@
 import fetch from "cross-fetch";
 import { BaseManager } from ".";
 import { Client } from "../lib";
-import { HomepageStatsResponse, PlayerDistributionResponse, SimpleStatsResponse } from "../typings";
+import { HomepageStatsResponse, PlayerDistributionResponse, SimpleStatsResponse, TopServerResponse } from "../typings";
 
 /**
  * Manages API methods for network stats.
@@ -86,6 +86,21 @@ export class NetworkManager extends BaseManager {
             playerServer: res.javaPlayerServer,
           },
         };
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  /**
+   * Get top 5 servers online.
+   * @returns {Promise<TopServerResponse[]>}
+   */
+  public async getTopServers(): Promise<TopServerResponse[]> {
+    return await fetch(`https://api.minehut.com/network/top_servers`)
+      .then((res: any) => res.json())
+      .then((res: { servers: TopServerResponse[] }) => {
+        return res.servers as TopServerResponse[];
       })
       .catch((err) => {
         throw err;

@@ -11,6 +11,10 @@ test("Simple stats", async () => {
   expect(await client.network.getSimpleStats()).toBeTruthy();
 });
 
-test("Top servers", async () => {
+test("Player distribution", async () => {
   expect(await client.network.getPlayerDistribution()).toBeTruthy();
+});
+
+test("Top servers", async () => {
+  expect(await client.network.getTopServers()).toBeTruthy();
 });
