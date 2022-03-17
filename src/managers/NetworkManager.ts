@@ -1,7 +1,13 @@
 import fetch from "cross-fetch";
 import { BaseManager } from ".";
 import { Client } from "../lib";
-import { HomepageStatsResponse, PlayerDistributionResponse, SimpleStatsResponse, TopServerResponse } from "../typings";
+import {
+  HomepageStatsResponse,
+  PlayerDistributionResponse,
+  ServersResponse,
+  SimpleStatsResponse,
+  TopServersResponse,
+} from "../typings";
 
 /**
  * Manages API methods for network stats.
@@ -94,13 +100,28 @@ export class NetworkManager extends BaseManager {
 
   /**
    * Get top 5 servers online.
-   * @returns {Promise<TopServerResponse[]>}
+   * @returns {Promise<TopServersResponse[]>}
    */
-  public async getTopServers(): Promise<TopServerResponse[]> {
+  public async getTopServers(): Promise<TopServersResponse[]> {
     return await fetch(`https://api.minehut.com/network/top_servers`)
       .then((res) => res.json())
-      .then((res: { servers: TopServerResponse[] }) => {
-        return res.servers as TopServerResponse[];
+      .then((res: { servers: TopServersResponse[] }) => {
+        return res.servers as TopServersResponse[];
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  /**
+   * Get all online servers
+   * @returns {Promise<ServersResponse[]>}
+   */
+  public async getServers(): Promise<ServersResponse[]> {
+    return await fetch(`https://api.minehut.com/servers`)
+      .then((res) => res.json())
+      .then((res: { servers: ServersResponse[]; total_players: number; total_servers: number }) => {
+        return res.servers;
       })
       .catch((err) => {
         throw err;

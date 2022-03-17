@@ -20,7 +20,7 @@ export interface PlayerDistributionResponse {
   javaPlayerServer: number;
 }
 
-export interface TopServerResponse {
+export interface TopServersResponse {
   staticInfo: {
     _id: string;
     serverPlan: string;
@@ -40,4 +40,26 @@ export interface TopServerResponse {
   icon: string;
   visibility: boolean;
   playerData: { players: string[]; playerCount: number; timeNoPlayers: number };
+}
+
+export interface ServersResponse {
+  staticInfo: {
+    _id: string;
+    serverPlan: string;
+    serviceStartDate: number;
+    platform: string;
+    planMaxPlayers: number;
+    rawPlan: string;
+    connectedServers: string[];
+  };
+  maxPlayers?: number;
+  name: string;
+  motd: string;
+  icon: string;
+  playerData: {
+    playerCount: number;
+    timeNoPlayers: number;
+  };
+  connectable: boolean;
+  visibility: boolean;
 }
