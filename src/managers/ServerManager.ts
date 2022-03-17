@@ -25,11 +25,11 @@ export class ServerManager extends BaseManager {
    * @param {boolean} byName Whether to search by name or Id.
    * @returns {Promise<Server>}
    */
-  async get(server: string, byName: boolean = true): Promise<Server> {
+  async get(server: string, byName = true): Promise<Server> {
     return await fetch(`https://api.minehut.com/server/${server}${byName ? "?byName=true" : ""}`)
-      .then((res: any) => res.json())
-      .then((server: any) => {
-        return new Server(this.client, server.server as ServerResponse);
+      .then((res) => res.json())
+      .then((res: { server: ServerResponse }) => {
+        return new Server(this.client, res.server as ServerResponse);
       })
       .catch((err) => {
         throw err;

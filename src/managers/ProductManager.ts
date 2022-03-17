@@ -25,7 +25,7 @@ export class ProductManager extends BaseManager {
    * @param {boolean} byName Whether to search by name or Id.
    * @returns {Promise<Product | undefined>}
    */
-  async get(product: string, byName: boolean = true): Promise<Product | undefined> {
+  async get(product: string, byName = true): Promise<Product | undefined> {
     return await this.getAll()
       .then((products) => {
         return products.find((p) =>

@@ -1,5 +1,5 @@
 import { Client } from "../lib";
-import { Details, ProductResponse } from "../typings";
+import { ProductResponse } from "../typings";
 import { BaseClass } from "./Base";
 
 /**

@@ -24,7 +24,7 @@ export class NetworkManager extends BaseManager {
    */
   public async getHomepageStats(): Promise<{ serverCount: number; userCount: number }> {
     return await fetch(`https://api.minehut.com/network/homepage_stats`)
-      .then((res: any) => res.json())
+      .then((res) => res.json())
       .then((res: HomepageStatsResponse) => {
         return {
           serverCount: res.server_count,
@@ -48,7 +48,7 @@ export class NetworkManager extends BaseManager {
     ramMax: number;
   }> {
     return await fetch(`https://api.minehut.com/network/simple_stats`)
-      .then((res: any) => res.json())
+      .then((res) => res.json())
       .then((res: SimpleStatsResponse) => {
         return {
           playerCount: res.player_count,
@@ -72,7 +72,7 @@ export class NetworkManager extends BaseManager {
     java: { total: number; lobby: number; playerServer: number };
   }> {
     return await fetch(`https://api.minehut.com/network/players/distribution`)
-      .then((res: any) => res.json())
+      .then((res) => res.json())
       .then((res: PlayerDistributionResponse) => {
         return {
           bedrock: {
@@ -98,7 +98,7 @@ export class NetworkManager extends BaseManager {
    */
   public async getTopServers(): Promise<TopServerResponse[]> {
     return await fetch(`https://api.minehut.com/network/top_servers`)
-      .then((res: any) => res.json())
+      .then((res) => res.json())
       .then((res: { servers: TopServerResponse[] }) => {
         return res.servers as TopServerResponse[];
       })

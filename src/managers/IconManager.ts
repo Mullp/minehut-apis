@@ -25,9 +25,9 @@ export class IconManager extends BaseManager {
    * @param {boolean} byName Whether to search by name or Id.
    * @returns {Promise<Icon | undefined>}
    */
-  async get(icon: string, byName: boolean = true): Promise<Icon | undefined> {
+  async get(icon: string, byName = true): Promise<Icon | undefined> {
     return await this.getAll()
-      .then((icons) => {
+      .then((icons: Icon[]) => {
         return icons.find((i) =>
           byName ? i.iconName.toLowerCase() === icon.toLowerCase() : i.id.toLowerCase() === icon.toLowerCase(),
         );
@@ -44,8 +44,8 @@ export class IconManager extends BaseManager {
   async getAll(): Promise<Icon[]> {
     return await fetch(`https://api.minehut.com/servers/icons`)
       .then((res) => res.json())
-      .then((icons: IconResponse[]) => {
-        return icons.map((icon) => new Icon(this.client, icon));
+      .then((res: IconResponse[]) => {
+        return res.map((icon) => new Icon(this.client, icon));
       })
       .catch((err) => {
         throw err;
@@ -61,7 +61,7 @@ export class IconManager extends BaseManager {
     upcoming: { icons: Icon[]; cycleTime: number; id: string; activeStartTime: number; activeEndTime: number };
   }> {
     return await fetch(`https://api.minehut.com/servers/available_icons`)
-      .then((res: any) => res.json())
+      .then((res) => res.json())
       .then((res: AvailableIconsResponse) => {
         return {
           available: {
