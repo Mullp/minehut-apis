@@ -21,15 +21,15 @@ export class ProductManager extends BaseManager {
 
   /**
    * Get a product by name or Id.
-   * @param {sting} product The name or the Id of the icon.
-   * @param {boolean} byTitle Whether to search by title or Id.
+   * @param {sting} product The name or the Id of the product.
+   * @param {boolean} byName Whether to search by name or Id.
    * @returns {Promise<Product | undefined>}
    */
-  async get(product: string, byTitle: boolean = true): Promise<Product | undefined> {
+  async get(product: string, byName: boolean = true): Promise<Product | undefined> {
     return await this.getAll()
       .then((products) => {
         return products.find((p) =>
-          byTitle
+          byName
             ? p.shortTitle
               ? p.shortTitle.toLowerCase() === product.toLowerCase()
               : p.title.toLowerCase() === product.toLowerCase()
