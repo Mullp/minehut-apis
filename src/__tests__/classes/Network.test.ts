@@ -1,4 +1,3 @@
-import { Icon, Server } from "../../classes";
 import { Client } from "../../index";
 
 const client = new Client();
