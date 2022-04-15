@@ -9,7 +9,7 @@ export interface IconResponse {
   created: number;
   last_updated: number;
   __v: number;
-  salePrice?: number;
+  salePrice?: number | null;
 }
 
 export interface AvailableIconsResponse {

@@ -1,14 +1,14 @@
 export interface ProductResponse {
   sku: string;
   price: number;
-  salePrice?: number;
+  salePrice: number | null;
   title: string;
-  shortTitle?: string;
+  shortTitle: string | null;
   currency: string;
   description: string;
   shortDescription: string;
   category: string;
-  type?: string;
+  type: string | null;
   tags: string[];
   heroImage: string;
   images: string[];
@@ -26,7 +26,7 @@ export interface ProductResponse {
 }
 
 export interface Details {
-  promotionalDiscountOptIn: boolean;
+  promotionalDiscountOptIn: boolean | null;
   supportedLanguages: string[];
   contributors: string[];
   compatibleVersions: string[];
