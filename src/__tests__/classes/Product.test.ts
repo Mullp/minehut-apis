@@ -9,8 +9,8 @@ test("All products", async () => {
 
 test("Product", async () => {
   expect(await client.product.get("WorldEdit", true)).toBeInstanceOf(Product);
-});
+}, 20000);
 
 test("Product link", async () => {
   expect((await client.product.get("WorldEdit", true))?.links.getSupportWebsite()).toBeTruthy();
-});
+}, 20000);
