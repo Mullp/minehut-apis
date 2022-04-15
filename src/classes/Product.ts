@@ -72,7 +72,7 @@ export class Product extends BaseClass {
     this.images = data.images.map(
       (image) => `https://image-service-prd.superleague.com/v1/images/${image}?size=600x338`,
     );
-    this.videos = data.videos.map((video) => `https://video.minehut.com/previews/${video}`);
+    this.videos = data.videos.map((video) => `https://video.minehut.com/videos/${video}`);
     this.visible = data.visible;
     this.slug = data.slug;
     this.promotionalDiscountOptIn = data.details.promotionalDiscountOptIn;
