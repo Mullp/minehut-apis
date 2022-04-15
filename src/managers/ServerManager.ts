@@ -28,8 +28,10 @@ export class ServerManager extends BaseManager {
   async get(server: string, byName = true): Promise<Server> {
     return await fetch(`https://api.minehut.com/server/${server}${byName ? "?byName=true" : ""}`)
       .then((res) => res.json())
-      .then((res: { server: ServerResponse }) => {
-        return new Server(this.client, res.server as ServerResponse);
+      .then((res) => {
+        if (res.ok === false) throw new Error("Unknown server");
+
+        return new Server(this.client, (res as { server: ServerResponse }).server as ServerResponse);
       })
       .catch((err) => {
         throw err;

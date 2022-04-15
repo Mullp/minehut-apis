@@ -7,6 +7,10 @@ test("Server", async () => {
   expect(await client.server.get("lightskies")).toBeInstanceOf(Server);
 });
 
+test("Unknown server", async () => {
+  await expect(client.server.get("aaaaaaaaaaaaaaaaaaaa")).rejects.toThrow("Unknown server");
+});
+
 test("Server purchased icons", async () => {
   expect(await (await client.server.get("lightskies")).getPurchasedIcons()).toBeInstanceOf(Array);
 });
