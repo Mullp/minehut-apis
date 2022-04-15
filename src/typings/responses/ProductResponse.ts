@@ -3,10 +3,10 @@ export interface ProductResponse {
   price: number;
   salePrice: number | null;
   title: string;
-  shortTitle: string | null;
+  shortTitle?: string | null;
   currency: string;
   description: string;
-  shortDescription: string;
+  shortDescription?: string | null;
   category: string;
   type: string | null;
   tags: string[];
@@ -26,7 +26,7 @@ export interface ProductResponse {
 }
 
 export interface Details {
-  promotionalDiscountOptIn: boolean | null;
+  promotionalDiscountOptIn: boolean;
   supportedLanguages: string[];
   contributors: string[];
   compatibleVersions: string[];

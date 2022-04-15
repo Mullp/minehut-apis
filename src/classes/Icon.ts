@@ -16,7 +16,7 @@ export class Icon extends BaseClass {
   public disabled: boolean;
   public createdAt: number;
   public lastUpdatedAt: number;
-  public salePrice?: number;
+  public salePrice?: number | null;
 
   public constructor(client: Client, data: IconResponse) {
     super(client);

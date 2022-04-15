@@ -19,14 +19,14 @@ export type Currency = "mhc";
 export class Product extends BaseClass {
   public id: string;
   public price: number;
-  public salePrice?: number;
+  public salePrice: number | null;
   public title: string;
-  public shortTitle?: string;
+  public shortTitle?: string | null;
   public currency: Currency;
   public description: string;
-  public shortDescription?: string;
+  public shortDescription?: string | null;
   public category: ProductCategory;
-  public type?: string;
+  public type: string | null;
   public tags: string[];
   public heroImage: string;
   public images: string[];
