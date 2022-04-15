@@ -55,7 +55,7 @@ export interface ServersResponse {
   maxPlayers?: number;
   name: string;
   motd: string;
-  icon: string;
+  icon: string | null;
   playerData: {
     playerCount: number;
     timeNoPlayers: number;
