@@ -1,13 +1,13 @@
 <div align="center">
   <br />
   <h1>
-    minehut.ts
+    minehut-apis
   </h1>
   <br />
   <p>
-    <a href="https://www.npmjs.com/package/minehut.ts"><img src="https://img.shields.io/npm/dt/minehut.ts" alt="npm downloads" /></a>
+    <a href="https://www.npmjs.com/package/minehut-apis"><img src="https://img.shields.io/npm/dt/minehut-apis" alt="npm downloads" /></a>
   </p>
-  <p>minehut.ts is a powerful <a href="https://nodejs.org">Node.js</a> module for interacting with the Minehut API.</p>
+  <p>minehut-apis is a powerful <a href="https://nodejs.org">Node.js</a> module for interacting with the Minehut API.</p>
 </div>
 
 ---
@@ -26,28 +26,28 @@
 
 ## Installation
 ```bash
-npm install minehut.ts
+npm install minehut-apis
 # or
-yarn add minehut.ts
+yarn add minehut-apis
 # or
-pnpm add minehut.ts
+pnpm add minehut-apis
 ```
 
 ## Loading the module
 ### ES Modules (ESM)
 ```js
-import { Client } from "minehut.ts";
+import { Client } from "minehut-apis";
 ```
 
 ### CommonJS
 ```js
-const { Client } = require("minehut.ts");
+const { Client } = require("minehut-apis");
 ```
 
 ## Example usage
 ### Get server by name
 ```js
-import { Client } from "minehut.ts";
+import { Client } from "minehut-apis";
 
 const minehut = new Client();
 
@@ -61,7 +61,7 @@ const minehut = new Client();
 
 ### Get server by Id
 ```js
-import { Client } from "minehut.ts";
+import { Client } from "minehut-apis";
 
 const minehut = new Client();
 
@@ -75,7 +75,7 @@ const minehut = new Client();
 
 ### Get product by name
 ```js
-import { Client } from "minehut.ts";
+import { Client } from "minehut-apis";
 
 const minehut = new Client();
 
@@ -95,11 +95,11 @@ const minehut = new Client();
 ### Avoid conflicts
 Importing another module with the same name will cause conflicts (eg. `discord.js`). This can simply be avoided by renaming the import.
 ```js
-import { Client as Minehut } from "minehut.ts";
-// Using CommonJS: "const { Client: Minehut } = require("minehut.ts")"
+import { Client as Minehut } from "minehut-apis";
+// Using CommonJS: "const { Client: Minehut } = require("minehut-apis")"
 import { Client } from "discord.js";
 
-// minehut.ts client
+// minehut-apis client
 const minehut = new Minehut();
 
 // discord.js client
@@ -107,7 +107,7 @@ const client = new Client();
 ```
 
 ## TypeScript
-Types are bundled with `minehut.ts`, so you do not need to install any additional packages.
+Types are bundled with `minehut-apis`, so you do not need to install any additional packages.
 
 ## Team
 | [![Mullp](https://github.com/Mullp.png?size=100)](https://github.com/Mullp) |
