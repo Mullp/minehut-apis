@@ -5,7 +5,16 @@ import { BaseClass } from "./Base";
 /**
  * Represents a product category.
  */
-export type ProductCategory = "Plugin" | "Script" | "Modpack" | "World" | "Schematic" | "Configuration";
+export type ProductCategory =
+  | "Plugin"
+  | "Script"
+  | "Modpack"
+  | "World"
+  | "Schematic"
+  | "Configuration"
+  | "Server Setup"
+  | "Minigame"
+  | "Premium Plugin";
 
 /**
  * Represents a product currency.
