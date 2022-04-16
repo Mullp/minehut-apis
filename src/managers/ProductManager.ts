@@ -4,11 +4,16 @@ import { Product } from "../classes";
 import { Client } from "../lib";
 import { ProductResponse } from "../typings";
 
+const CACHE_TTL = 1000 * 60 * 60; // 1 hour
+
 /**
  * Manages API methods for {@link Product} objects.
  * @extends {BaseManager}
  */
 export class ProductManager extends BaseManager {
+  private cache: Product[] = [];
+  private lastCacheUpdate?: Date;
+
   /**
    * The client that instantiated this manager.
    * @type {Client}
@@ -46,12 +51,19 @@ export class ProductManager extends BaseManager {
    * @returns {Promise<Product[]>}
    */
   async getAll(): Promise<Product[]> {
+    if (this.cache.length > 0 && !(this.lastCacheUpdate && Date.now() - this.lastCacheUpdate.getTime() > CACHE_TTL))
+      return this.cache;
+
     return await fetch(`https://facade-service-prod.superleague.com/facade/v1/client/products`)
       .then((res) => res.json())
       .then((res) => {
         if (res.ok === false) throw new Error("Error getting products");
 
-        return (res as ProductResponse[]).map((product) => new Product(this.client, product));
+        const products = (res as ProductResponse[]).map((product) => new Product(this.client, product));
+
+        this.cache = products;
+
+        return products;
       })
       .catch((err) => {
         throw err;
