@@ -114,7 +114,7 @@ export class NetworkManager extends BaseManager {
   }
 
   /**
-   * Get all online servers
+   * Get all online servers.
    * @returns {Promise<ServersResponse[]>}
    */
   public async getServers(): Promise<ServersResponse[]> {

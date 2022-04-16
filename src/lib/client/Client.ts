@@ -1,5 +1,8 @@
 import { IconManager, NetworkManager, ProductManager, ServerManager } from "../../managers";
 
+/**
+ * Represents the client.
+ */
 export class Client {
   /**
    * The server manager used to access server related methods.
@@ -21,7 +24,7 @@ export class Client {
 
   /**
    * The product manager used to access product related methods.
-   * @type {NetworkManager}
+   * @type {ProductManager}
    */
   product: ProductManager;
 
