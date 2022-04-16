@@ -48,8 +48,10 @@ export class ProductManager extends BaseManager {
   async getAll(): Promise<Product[]> {
     return await fetch(`https://facade-service-prod.superleague.com/facade/v1/client/products`)
       .then((res) => res.json())
-      .then((res: ProductResponse[]) => {
-        return res.map((product) => new Product(this.client, product));
+      .then((res) => {
+        if (res.ok === false) throw new Error("Error getting products");
+
+        return (res as ProductResponse[]).map((product) => new Product(this.client, product));
       })
       .catch((err) => {
         throw err;
