@@ -29,7 +29,7 @@
     "typescript": "^4.6.2"
   },
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --verbose -i",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --ext .ts",
