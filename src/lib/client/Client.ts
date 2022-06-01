@@ -1,4 +1,5 @@
 import { IconManager, NetworkManager, ProductManager, ServerManager } from "../../managers";
+import { MakerManager } from "../../managers/MakerManager";
 
 /**
  * Represents the client.
@@ -28,10 +29,17 @@ export class Client {
    */
   product: ProductManager;
 
+  /**
+   * The maker manager used to access maker related methods.
+   * @type {MakerManager}
+   */
+  maker: MakerManager;
+
   public constructor() {
     this.server = new ServerManager(this);
     this.icon = new IconManager(this);
     this.network = new NetworkManager(this);
     this.product = new ProductManager(this);
+    this.maker = new MakerManager(this);
   }
 }

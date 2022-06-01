@@ -28,7 +28,7 @@ export class ProductManager extends BaseManager {
    * Get a product by name or Id.
    * @param {sting} product The name or the Id of the product.
    * @param {boolean} byName Whether to search by name or Id.
-   * @returns {Promise<Product | undefined>}
+   * @returns {Promise<Product | undefined>} A product object.
    */
   async get(product: string, byName = true): Promise<Product | undefined> {
     return await this.getAll()
@@ -48,7 +48,7 @@ export class ProductManager extends BaseManager {
 
   /**
    * Get all products.
-   * @returns {Promise<Product[]>}
+   * @returns {Promise<Product[]>} A list of products.
    */
   async getAll(): Promise<Product[]> {
     if (this.cache.length > 0 && !(this.lastCacheUpdate && Date.now() - this.lastCacheUpdate.getTime() > CACHE_TTL))
