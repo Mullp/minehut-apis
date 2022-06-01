@@ -5,7 +5,7 @@ export interface ServerResponse {
   backup_slots: number;
   suspended: boolean;
   server_version_type: string;
-  proxy: string;
+  proxy: boolean;
   connectedServers: string[];
   _id: string;
   motd: string;
@@ -22,6 +22,8 @@ export interface ServerResponse {
   port: number;
   last_online: number;
   active_icon: string;
+  default_banner_image: string;
+  default_banner_tint: string;
   icon: string;
   online: boolean;
   maxPlayers?: number;

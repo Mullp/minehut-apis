@@ -13,7 +13,7 @@ export class Server extends BaseClass {
   public backupSlots: number;
   public suspended: boolean;
   public serverVersionType: string;
-  public proxy: string;
+  public proxy: boolean;
   public connectedServers: string[];
   public id: string;
   public motd: string;
@@ -29,6 +29,8 @@ export class Server extends BaseClass {
   public __v: number;
   public port: number;
   public lastOnline: number;
+  public defaultBannerImage: string;
+  public defaultBannerTint: string;
   public online: boolean;
   public maxPlayers?: number;
   public playerCount: number;
@@ -63,6 +65,8 @@ export class Server extends BaseClass {
     this.__v = data.__v;
     this.port = data.port;
     this.lastOnline = data.last_online;
+    this.defaultBannerImage = data.default_banner_image;
+    this.defaultBannerTint = data.default_banner_tint;
     this.online = data.online;
     this.maxPlayers = data.maxPlayers;
     this.playerCount = data.playerCount;
