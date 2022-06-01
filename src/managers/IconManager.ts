@@ -20,10 +20,10 @@ export class IconManager extends BaseManager {
   }
 
   /**
-   * Get a icon by name or Id.
+   * Get an icon by name or Id.
    * @param {sting} icon The name or the Id of the icon.
    * @param {boolean} byName Whether to search by name or Id.
-   * @returns {Promise<Icon | undefined>}
+   * @returns {Promise<Icon | undefined>} An icon object.
    */
   async get(icon: string, byName = true): Promise<Icon | undefined> {
     return await this.getAll()
@@ -39,7 +39,7 @@ export class IconManager extends BaseManager {
 
   /**
    * Get all icons.
-   * @returns {Promise<Icon[]>}
+   * @returns {Promise<Icon[]>} A list of icons.
    */
   async getAll(): Promise<Icon[]> {
     return await fetch(`https://api.minehut.com/servers/icons`)
@@ -54,7 +54,7 @@ export class IconManager extends BaseManager {
 
   /**
    * Get available and upcoming icons in the shop.
-   * @returns {Promise<{available: { icons: Icon[]; cycleTime: number; id: string; activeStartTime: number; activeEndTime: number };upcoming: { icons: Icon[]; cycleTime: number; id: string; activeStartTime: number; activeEndTime: number };}>}
+   * @returns {Promise<{available: { icons: Icon[]; cycleTime: number; id: string; activeStartTime: number; activeEndTime: number };upcoming: { icons: Icon[]; cycleTime: number; id: string; activeStartTime: number; activeEndTime: number };}>} The available and upcoming icons.
    */
   async getAvailableIcons(): Promise<{
     available: { icons: Icon[]; cycleTime: number; id: string; activeStartTime: number; activeEndTime: number };

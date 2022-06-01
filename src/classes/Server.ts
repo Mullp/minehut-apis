@@ -78,7 +78,7 @@ export class Server extends BaseClass {
 
   /**
    * All purchased icons.
-   * @returns {Promise<Icon[]>}
+   * @returns {Promise<Icon[]>} A list of the server's purchased icons.
    */
   public async getPurchasedIcons(): Promise<Icon[]> {
     return (await this.client.icon.getAll()).filter((icon) => this.raw.purchased_icons.includes(icon.id));
@@ -86,7 +86,7 @@ export class Server extends BaseClass {
 
   /**
    * The active server icon.
-   * @returns {Promise<Icon|undefined>}
+   * @returns {Promise<Icon|undefined>} The server's active server icon.
    */
   public async getActiveIcon(): Promise<Icon | undefined> {
     return await this.client.icon.get(this.raw.active_icon, false);

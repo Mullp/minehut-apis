@@ -23,7 +23,7 @@ export class ServerManager extends BaseManager {
    * Get a server by name or Id.
    * @param {string} server The name or the Id of the server.
    * @param {boolean} byName Whether to search by name or Id.
-   * @returns {Promise<Server>}
+   * @returns {Promise<Server>} A server object.
    */
   async get(server: string, byName = true): Promise<Server> {
     return await fetch(`https://api.minehut.com/server/${server}${byName ? "?byName=true" : ""}`)

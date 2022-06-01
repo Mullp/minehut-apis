@@ -117,7 +117,7 @@ export class ProductLinks {
 
   /**
    * Gets the support website url.
-   * @returns {string}
+   * @returns {string} The support website url.
    */
   public getSupportWebsite(): string {
     return this.links[0].linkUrl;
@@ -125,15 +125,15 @@ export class ProductLinks {
 
   /**
    * Gets the product website url.
-   * @returns {string}
+   * @returns {string} the product website url.
    */
   public getProductWebsite(): string {
     return this.links[1].linkUrl;
   }
 
   /**
-   * Gets the faq website url.
-   * @returns {string}
+   * Gets the FAQ website url.
+   * @returns {string} the FAQ website url.
    */
   public getFaqWebsite(): string {
     return this.links[2].linkUrl;

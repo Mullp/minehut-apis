@@ -26,7 +26,7 @@ export class NetworkManager extends BaseManager {
 
   /**
    * Get homepage stats.
-   * @returns {Promise<{ serverCount: number; userCount: number }>}
+   * @returns {Promise<{ serverCount: number; userCount: number }>} The amount of servers and users registered.
    */
   public async getHomepageStats(): Promise<{ serverCount: number; userCount: number }> {
     return await fetch(`https://api.minehut.com/network/homepage_stats`)
@@ -44,7 +44,7 @@ export class NetworkManager extends BaseManager {
 
   /**
    * Get simple stats.
-   * @returns {Promise<{playerCount: number; serverCount: number; serverMax: number; ramCount: number; ramMax: number }>}
+   * @returns {Promise<{playerCount: number; serverCount: number; serverMax: number; ramCount: number; ramMax: number }>} Simple statistics about the network.
    */
   public async getSimpleStats(): Promise<{
     playerCount: number;
@@ -71,7 +71,7 @@ export class NetworkManager extends BaseManager {
 
   /**
    * Get player distribution.
-   * @returns {Promise<{bedrock: {total: number; lobby: number; playerServer: number}; java: {total: number; lobby: number; playerServer: number}}>}
+   * @returns {Promise<{bedrock: {total: number; lobby: number; playerServer: number}; java: {total: number; lobby: number; playerServer: number}}>} The player distribution between Java and Bedrock.
    */
   public async getPlayerDistribution(): Promise<{
     bedrock: { total: number; lobby: number; playerServer: number };
@@ -100,7 +100,7 @@ export class NetworkManager extends BaseManager {
 
   /**
    * Get top 5 servers online.
-   * @returns {Promise<TopServersResponse[]>}
+   * @returns {Promise<TopServersResponse[]>} A list of the top 5 servers online.
    */
   public async getTopServers(): Promise<TopServersResponse[]> {
     return await fetch(`https://api.minehut.com/network/top_servers`)
@@ -115,7 +115,7 @@ export class NetworkManager extends BaseManager {
 
   /**
    * Get all online servers.
-   * @returns {Promise<ServersResponse[]>}
+   * @returns {Promise<ServersResponse[]>} A list of all online servers.
    */
   public async getServers(): Promise<ServersResponse[]> {
     return await fetch(`https://api.minehut.com/servers`)
