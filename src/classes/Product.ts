@@ -77,10 +77,8 @@ export class Product extends BaseClass {
     this.category = <ProductCategory>data.category;
     this.type = data.type;
     this.tags = data.tags;
-    this.heroImage = `https://image-service-prd.superleague.com/v1/images/${data.heroImage}?size=600x338`;
-    this.images = data.images.map(
-      (image) => `https://image-service-prd.superleague.com/v1/images/${image}?size=600x338`,
-    );
+    this.heroImage = `https://image-service-prd.superleague.com/v1/images/${data.heroImage}?size=auto`;
+    this.images = data.images.map((image) => `https://image-service-prd.superleague.com/v1/images/${image}?size=auto`);
     this.videos = data.videos.map((video) => `https://video.minehut.com/videos/${video}`);
     this.visible = data.visible;
     this.slug = data.slug;

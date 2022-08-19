@@ -21,7 +21,7 @@ export interface ServerResponse {
   __v: number;
   port: number;
   last_online: number;
-  active_icon: string;
+  active_icon?: string;
   default_banner_image: string;
   default_banner_tint: string;
   icon: string;

@@ -65,7 +65,7 @@ export class Server extends BaseClass {
     this.__v = data.__v;
     this.port = data.port;
     this.lastOnline = data.last_online;
-    this.defaultBannerImage = data.default_banner_image;
+    this.defaultBannerImage = `https://image-service-prd.superleague.com/v1/images/server-banner-images/${data.default_banner_image}?size=auto`;
     this.defaultBannerTint = data.default_banner_tint;
     this.online = data.online;
     this.maxPlayers = data.maxPlayers;
@@ -89,6 +89,8 @@ export class Server extends BaseClass {
    * @returns {Promise<Icon|undefined>} The server's active server icon.
    */
   public async getActiveIcon(): Promise<Icon | undefined> {
+    if (!this.raw.active_icon) return;
+
     return await this.client.icon.get(this.raw.active_icon, false);
   }
 }

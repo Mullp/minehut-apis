@@ -55,11 +55,15 @@ export interface ServersResponse {
   maxPlayers?: number;
   name: string;
   motd: string;
-  icon: string | null;
+  icon?: string;
   playerData: {
     playerCount: number;
     timeNoPlayers: number;
   };
   connectable: boolean;
   visibility: boolean;
+  allCategories: string[];
+  server_version?: { type: string; version: string };
+  default_banner_image?: string;
+  default_banner_tint?: string;
 }

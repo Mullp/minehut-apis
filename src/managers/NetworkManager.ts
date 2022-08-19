@@ -1,5 +1,6 @@
 import fetch from "cross-fetch";
 import { BaseManager } from ".";
+import { ServerLight } from "../classes/ServerLight";
 import { Client } from "../lib";
 import {
   HomepageStatsResponse,
@@ -8,6 +9,12 @@ import {
   SimpleStatsResponse,
   TopServersResponse,
 } from "../typings";
+
+interface IGetServersOptions {
+  limit?: number;
+  offset?: number;
+  category?: string;
+}
 
 /**
  * Manages API methods for network stats.
@@ -115,13 +122,17 @@ export class NetworkManager extends BaseManager {
 
   /**
    * Get all online servers.
-   * @returns {Promise<ServersResponse[]>} A list of all online servers.
+   * @returns {Promise<ServerLight[]>} A list of all online servers.
    */
-  public async getServers(): Promise<ServersResponse[]> {
-    return await fetch(`https://api.minehut.com/servers`)
+  public async getServers({ limit, offset, category }: IGetServersOptions = {}): Promise<ServerLight[]> {
+    return await fetch(
+      `https://api.minehut.com/servers?${limit ? `limit=${limit}&` : ""}${offset ? `offset=${offset}&` : ""}${
+        category ? `category=${category}&` : ""
+      }`,
+    )
       .then((res) => res.json())
       .then((res: { servers: ServersResponse[]; total_players: number; total_servers: number }) => {
-        return res.servers;
+        return res.servers.map((server) => new ServerLight(this.client, server));
       })
       .catch((err) => {
         throw err;
