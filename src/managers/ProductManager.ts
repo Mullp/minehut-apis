@@ -38,7 +38,7 @@ export class ProductManager extends BaseManager {
             ? p.shortTitle
               ? p.shortTitle.toLowerCase() === product.toLowerCase()
               : p.title.toLowerCase() === product.toLowerCase()
-            : p.id.toLowerCase() === product.toLowerCase(),
+            : p.sku.toLowerCase() === product.toLowerCase(),
         );
       })
       .catch((err) => {

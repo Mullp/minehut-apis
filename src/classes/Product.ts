@@ -26,16 +26,16 @@ export type Currency = "mhc";
  * @extends {BaseClass}
  */
 export class Product extends BaseClass {
-  public id: string;
+  public sku: string;
   public price: number;
-  public salePrice: number | null;
+  public salePrice?: number;
   public title: string;
-  public shortTitle?: string | null;
+  public shortTitle?: string;
   public currency: Currency;
   public description: string;
-  public shortDescription?: string | null;
+  public shortDescription?: string;
   public category: ProductCategory;
-  public type: string | null;
+  public type?: string;
   public tags: string[];
   public heroImage: string;
   public images: string[];
@@ -66,7 +66,7 @@ export class Product extends BaseClass {
 
     this.client = client;
 
-    this.id = data.sku;
+    this.sku = data.sku;
     this.price = data.price;
     this.salePrice = data.salePrice;
     this.title = data.title;

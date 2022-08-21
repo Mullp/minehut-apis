@@ -1,14 +1,14 @@
 export interface ProductResponse {
   sku: string;
   price: number;
-  salePrice: number | null;
+  salePrice?: number;
   title: string;
-  shortTitle?: string | null;
+  shortTitle?: string;
   currency: string;
   description: string;
-  shortDescription?: string | null;
+  shortDescription?: string;
   category: string;
-  type: string | null;
+  type?: string;
   tags: string[];
   heroImage: string;
   images: string[];

@@ -19,8 +19,8 @@ export class Maker extends BaseClass {
   public publisherName: string;
   public socialProfiles: SocialProfiles;
   public heroImage: string;
-  public publisherLogo: string;
-  public promotionalDiscountOptIn: boolean;
+  public publisherLogo?: string;
+  public promotionalDiscountOptIn?: boolean;
 
   public constructor(client: Client, data: MakerResponse) {
     super(client);
@@ -38,7 +38,9 @@ export class Maker extends BaseClass {
     this.publisherName = data.publisherName;
     this.socialProfiles = data.socialProfiles;
     this.heroImage = `https://image-service-prd.superleague.com/v1/images/${data.heroImage}?size=600x338`;
-    this.publisherLogo = `https://image-service-prd.superleague.com/v1/images/${data.publisherLogo}?size=600x338`;
+    this.publisherLogo = data.publisherLogo
+      ? `https://image-service-prd.superleague.com/v1/images/${data.publisherLogo}?size=600x338`
+      : undefined;
     this.promotionalDiscountOptIn = data.promotionalDiscountOptIn;
   }
 

@@ -1,5 +1,6 @@
 export interface MakerResponse {
   _id: string;
+  promotionalDiscountOptIn?: boolean;
   flags: Flags;
   publisherId: string;
   publisherSlug: string;
@@ -11,8 +12,7 @@ export interface MakerResponse {
   publisherName: string;
   socialProfiles: SocialProfiles;
   heroImage: string;
-  publisherLogo: string;
-  promotionalDiscountOptIn: boolean;
+  publisherLogo?: string;
 }
 
 export interface Flags {
