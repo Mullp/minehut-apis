@@ -21,3 +21,7 @@ test("Top servers", async () => {
 test("All servers", async () => {
   expect(await client.network.getServers()).toBeInstanceOf(Array);
 }, 20000);
+
+test("Server categories", async () => {
+  expect(await client.network.getServerCategories()).toBeInstanceOf(Array);
+}, 20000);

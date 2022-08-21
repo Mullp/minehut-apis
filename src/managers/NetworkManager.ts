@@ -139,4 +139,25 @@ export class NetworkManager extends BaseManager {
         throw err;
       });
   }
+
+  public async getServerCategories(): Promise<{ order?: string | undefined; category: string; linkText: string }[]> {
+    return await fetch(`https://list-service-prod.superleague.com/listservice/v1/list/minehut-server-categories`)
+      .then((res) => res.json())
+      .then(
+        (res: {
+          _id: string;
+          items: { order?: string; category: string; linkText: string }[];
+          itemType: string;
+          listName: string;
+          listDesc: string;
+          listSlug: string;
+          nbItems: number;
+        }) => {
+          return res.items;
+        },
+      )
+      .catch((err) => {
+        throw err;
+      });
+  }
 }
