@@ -43,7 +43,7 @@ export class MakerManager extends BaseManager {
    * @param {boolean} bySlug Whether to search by slug or Id.
    * @returns {Promise<Product[]>} A list of the maker's products.
    */
-  async getProducts(maker: string, bySlug = true): Promise<Product[]> {
+  async getProducts(maker: string, bySlug: boolean = true): Promise<Product[]> {
     return await this.client.product.getAll().then((products) => {
       return products.filter((product) => (bySlug ? product.publisherSlug === maker : product.publisherId === maker));
     });
