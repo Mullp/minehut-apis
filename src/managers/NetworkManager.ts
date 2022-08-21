@@ -140,6 +140,10 @@ export class NetworkManager extends BaseManager {
       });
   }
 
+  /**
+   * Get all server categories.
+   * @returns {Promise<{ order?: string | undefined; category: string; linkText: string }[]>} A list of all server categories.
+   */
   public async getServerCategories(): Promise<{ order?: string | undefined; category: string; linkText: string }[]> {
     return await fetch(`https://list-service-prod.superleague.com/listservice/v1/list/minehut-server-categories`)
       .then((res) => res.json())
