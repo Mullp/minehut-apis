@@ -11,6 +11,7 @@ import {
 } from "../typings";
 
 interface IGetServersOptions {
+  query?: string;
   limit?: number;
   offset?: number;
   category?: string;
@@ -124,11 +125,11 @@ export class NetworkManager extends BaseManager {
    * Get all online servers.
    * @returns {Promise<ServerLight[]>} A list of all online servers.
    */
-  public async getServers({ limit, offset, category }: IGetServersOptions = {}): Promise<ServerLight[]> {
+  public async getServers({ query, limit, offset, category }: IGetServersOptions = {}): Promise<ServerLight[]> {
     return await fetch(
-      `https://api.minehut.com/servers?${limit ? `limit=${limit}&` : ""}${offset ? `offset=${offset}&` : ""}${
-        category ? `category=${category}&` : ""
-      }`,
+      `https://api.minehut.com/servers?${query ? `q=${query}&` : ""}${limit ? `limit=${limit}&` : ""}${
+        offset ? `offset=${offset}&` : ""
+      }${category ? `category=${category}&` : ""}`,
     )
       .then((res) => res.json())
       .then((res: { servers: ServersResponse[]; total_players: number; total_servers: number }) => {
